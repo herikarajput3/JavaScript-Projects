@@ -26,3 +26,11 @@ body {
 .column{
     text-align: left;
 }
+
+.error{
+    display: none;
+}
+
+.weather{
+    display: none;
+}
