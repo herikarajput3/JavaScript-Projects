@@ -1,0 +1,12 @@
+body{
+    background: linear-gradient(135deg, #153677, #4e085f);
+}
+
+.todo-app h2{
+    color: #002765;
+}
+
+.add-btn{
+    font-size: 0.9rem !important;
+    font-weight: 500;
+}
