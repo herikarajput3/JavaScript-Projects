@@ -1,12 +1,26 @@
-body{
+body {
     background: linear-gradient(135deg, #153677, #4e085f);
 }
 
-.todo-app h2{
+.todo-app h2 {
     color: #002765;
 }
 
-.add-btn{
+.add-btn {
     font-size: 0.9rem !important;
     font-weight: 500;
+}
+
+.deleteSpan {
+    position: absolute;
+    right: 0;
+}
+
+#input-box {
+    width: 30vw;
+}
+
+#addBtn {
+    width: 5vw;
+    font-size: 1rem !important;
 }
