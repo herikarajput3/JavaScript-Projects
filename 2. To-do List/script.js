@@ -91,24 +91,15 @@ function show() {
 
 function toggle(index) {
     let taskData = JSON.parse(localStorage.getItem("taskData")); // Get tasks from storage
-
-    // Toggle the completed status
     taskData[index].completed = !taskData[index].completed;
-
     localStorage.setItem("taskData", JSON.stringify(taskData)); // Save changes
-    show(); // Refresh task lists
+    show(); 
 }
 
 function removeTask(index) {
     let taskData = JSON.parse(localStorage.getItem("taskData")) || [];
-
-    // Remove the task from the array based on index
     taskData.splice(index, 1);
-
-    // Update the taskData in localStorage
     localStorage.setItem("taskData", JSON.stringify(taskData));
-
-    // Refresh the task list after removal
     show();
 }
 
