@@ -49,23 +49,23 @@
                     <p class="h1 text-center mb-3">Create Task</p>
                     <div class="mb-3 ">
                         <label for="taskName" class="form-label">Task Name</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control taskName" />
                     </div>
                     <div class="mb-3 ">
                         <label for="taskDesc" class="form-label">Task Description</label>
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control taskDesc" />
                     </div>
                     <div class="mb-3 ">
                         <label for="taskStatus" class="form-label">Task Status</label>
-                        <select class="form-select">
-                            <option selected>Pending</option>
-                            <option value="1">In Progress</option>
-                            <option value="2">Completed</option>
+                        <select id="taskStatus" class="form-select">
+                            <option selected value="1">Pending</option>
+                            <option value="2">In Progress</option>
+                            <option value="3">Completed</option>
                         </select>
                     </div>
                     <div class="mb-3 ">
                         <label for="user" class="form-label">User</label>
-                        <select class="form-select">
+                        <select id="user" class="form-select">
                             <option selected>Select Employee</option>
                             <!-- <option value="1">In Progress</option> -->
                         </select>
