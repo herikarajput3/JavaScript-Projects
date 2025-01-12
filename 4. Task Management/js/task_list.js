@@ -1,6 +1,5 @@
 let taskContainer = document.querySelector("#taskContainer");
 let saveBtn = document.querySelector(".saveBtn");
-let modal = document.querySelector(".modal-body");
 
 function displayTaskList() {
     let taskDetail = JSON.parse(localStorage.getItem("taskList")) || [];
