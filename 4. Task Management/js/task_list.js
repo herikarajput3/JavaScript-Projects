@@ -1,19 +1,20 @@
 let taskContainer = document.querySelector("#taskContainer");
-
+let saveBtn = document.querySelector(".saveBtn");
+let modal = document.querySelector(".modal-body");
 
 function displayTaskList() {
-    let taskData = JSON.parse(localStorage.getItem("taskList")) || [];
+    let taskDetail = JSON.parse(localStorage.getItem("taskList")) || [];
     let taskList = "";
 
     // If no tasks are found
-    if (taskData.length === 0) {
+    if (taskDetail.length === 0) {
         taskContainer.innerHTML = `
             <div class="col-md-6">
                 <h1 class="text-center fw-bold text-dark">No Task Found</h1>
             </div>  `
     }
 
-    taskData.map((items, index) => {
+    taskDetail.map((items, index) => {
         taskList += `
         <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center">
             <div class="card my-3">
@@ -22,8 +23,9 @@ function displayTaskList() {
                 <p class="card-text">Task Desc: ${items.taskDesc}</p>
                 <p class="card-text">Task Status: ${items.taskStatus}</p>
                 <p class="card-text">Task Assignee to: ${items.user}</p>
-                <a href="#" class="btn btn-primary" onclick="updateTask(this)">Edit</a>
-                <a href="#" class="btn btn-danger" onclick="deleteTask(this)">Delete</a>
+                <button type="button" class="btn btn-primary" onclick="updateTask(${index})" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Edit</button>
+                <button  class="btn btn-danger" onclick="deleteTask(${index})">Delete</button>
             </div>
             </div>
         </div>
@@ -34,15 +36,38 @@ function displayTaskList() {
 }
 displayTaskList();
 
-function updateTask(index) {
-    let taskData = JSON.parse(localStorage.getItem("taskList"));
-    
+function updateTask(id) {
+    let taskList = JSON.parse(localStorage.getItem("taskList"));
+
+    taskName.value = taskList[id].taskName;
+    taskDesc.value = taskList[id].taskDesc;
+    taskStatus.value = taskList[id].taskStatus;
+    user.value = taskList[id].user;
+
+    saveBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        // Change the values
+        console.log("save changes");
+
+        let taskDetail = {
+            taskName: taskName.value,
+            taskDesc: taskDesc.value,
+            taskStatus: taskStatus.value,
+            user: user.value
+        }
+
+        taskList.splice(id, 1, taskDetail);
+        localStorage.setItem("taskList", JSON.stringify(taskList));
+
+        displayTaskList()
+
+    })
+}
+
+function deleteTask(id) {
+    // let taskList = JSON.parse(localStorage.getItem("taskList"));
+    // taskList.splice(id, 1);
+    // localStorage.setItem("taskList", JSON.stringify(taskList));
+    // displayTaskList();
 
 }
-// updateTask()
-
-function deleteTask(index) {
-    let taskData = JSON.parse(localStorage.getItem("taskList"));
-
-}
-// deleteTask()
