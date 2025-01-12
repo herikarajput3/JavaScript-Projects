@@ -23,7 +23,7 @@ function displayUserList() {
                 <p class="card-text">User Name: ${items.user_name}</p>
                 <button type="button" class="btn btn-primary" onclick="updateUser(${index})" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Edit</button>
-                <button class="btn btn-danger" onclick="deleteTask(${index})">Delete</button>
+                <button class="btn btn-danger" onclick="deleteUser(${index})">Delete</button>
             </div>
         </div>    
         </div>    
@@ -32,3 +32,31 @@ function displayUserList() {
     userContainer.innerHTML = user_list;
 }
 displayUserList();
+
+function updateUser(id) {
+    let userList = JSON.parse(localStorage.getItem("user_list"));
+
+    user_id.value = userList[id].user_id;
+    user_name.value = userList[id].user_name;
+
+    saveBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let userDetails = {
+            user_id: user_id.value,
+            user_name: user_name.value
+        }
+
+        userList.splice(id, 1, userDetails);
+        localStorage.setItem("user_list", JSON.stringify(userList));
+
+        displayUserList();
+
+    });
+}
+
+function deleteUser(id) {
+    let userList = JSON.parse(localStorage.getItem("user_list"));
+    userList.splice(id, 1);
+    localStorage.setItem("user_list", JSON.stringify(userList));
+    displayUserList();
+}
