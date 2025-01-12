@@ -46,7 +46,6 @@ function updateTask(id) {
     saveBtn.addEventListener("click", (e) => {
         e.preventDefault();
         // Change the values
-        console.log("save changes");
 
         let taskDetail = {
             taskName: taskName.value,
