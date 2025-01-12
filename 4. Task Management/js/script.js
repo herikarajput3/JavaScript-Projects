@@ -37,8 +37,5 @@ form.addEventListener("submit", (e) => {
     taskDesc.value = "";
     taskStatus.value = "1";
     user.value = "Select Employee";
-
-
-    // displayTaskList();
 })
 
