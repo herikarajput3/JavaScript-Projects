@@ -65,9 +65,9 @@ function updateTask(id) {
 }
 
 function deleteTask(id) {
-    // let taskList = JSON.parse(localStorage.getItem("taskList"));
-    // taskList.splice(id, 1);
-    // localStorage.setItem("taskList", JSON.stringify(taskList));
-    // displayTaskList();
+    let taskList = JSON.parse(localStorage.getItem("taskList"));
+    taskList.splice(id, 1);
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+    displayTaskList();
 
 }
