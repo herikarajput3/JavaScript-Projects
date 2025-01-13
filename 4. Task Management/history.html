@@ -42,8 +42,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
-                <h1 class="text-center fw-bold text-dark mb-5">History</h1>
-
+                <h1 class="text-center fw-bold text-dark display-4 pb-3" style="border: outset;">History</h1>
             </div>
         </div>
     </div>
@@ -52,7 +51,42 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-12">
                 <div class="table-responsive">
-                    <table class="table table-hover table-success table-striped table-bordered">
+                    <table class="table table-hover table-success table-striped table-bordered caption-top">
+                        <caption class="fs-2 fw-bold text-center mb-2 mt-3">User History</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Number</th>
+                                <th scope="col">User ID</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-secondary user_tbody">
+                            <!-- <tr>
+                                <th scope="row">1</th>
+                                <td>taskname</td>
+                                <td>task Desc</td>
+                                <td>
+                                    <button class="btn btn-danger mb-4 mb-lg-0">Remove</button>
+                                    <button class="btn btn-success">Restore</button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3 col-12 d-flex justify-content-center">
+                <button class="btn btn-danger removeAllUser">Remove All Users</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-success table-striped table-bordered caption-top">
+                        <caption class="fs-2 fw-bold text-center mt-4 mb-2">Task History</caption>
                         <thead>
                             <tr>
                                 <th scope="col">Number</th>
@@ -63,7 +97,7 @@
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="table-secondary">
+                        <tbody class="table-secondary task_tbody">
                             <!-- <tr>
                                 <th scope="row">1</th>
                                 <td>taskname</td>
@@ -80,7 +114,7 @@
                 </div>
             </div>
             <div class="col-md-3 col-12 d-flex justify-content-center">
-                <button class="btn btn-danger removeAll">Remove All</button>
+                <button class="btn btn-danger removeAllTasks">Remove All Tasks</button>
             </div>
         </div>
     </div>

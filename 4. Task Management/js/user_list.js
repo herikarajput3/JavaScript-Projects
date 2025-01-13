@@ -56,6 +56,10 @@ function updateUser(id) {
 
 function deleteUser(id) {
     let userList = JSON.parse(localStorage.getItem("user_list"));
+    let userHistory = JSON.parse(localStorage.getItem("userHistory")) || [];
+    let deletedUser = userList[id];
+    userHistory.push(deletedUser);
+    localStorage.setItem("userHistory", JSON.stringify(userHistory));
     userList.splice(id, 1);
     localStorage.setItem("user_list", JSON.stringify(userList));
     displayUserList();
