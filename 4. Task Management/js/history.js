@@ -1,4 +1,5 @@
 tbody = document.querySelector("tbody");
+removeAll = document.querySelector(".removeAll");
 
 function displayTaskHistory() {
     let taskHistory = JSON.parse(localStorage.getItem("taskListHistory")) || [];
@@ -41,3 +42,9 @@ function restoreTask(id) {
     localStorage.setItem("taskListHistory", JSON.stringify(taskHistory))
     displayTaskHistory();
 }
+
+removeAll.addEventListener("click", (e) => {
+    console.log("remove");
+    localStorage.removeItem("taskListHistory");
+    location.reload();
+})
