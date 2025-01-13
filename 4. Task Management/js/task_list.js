@@ -64,6 +64,11 @@ function updateTask(id) {
 
 function deleteTask(id) {
     let taskList = JSON.parse(localStorage.getItem("taskList"));
+    let taskHistory = JSON.parse(localStorage.getItem("taskListHistory")) || [];
+    let deletedTask = taskList[id];
+
+    taskHistory.push(deletedTask);
+    localStorage.setItem("taskListHistory", JSON.stringify(taskHistory));
     taskList.splice(id, 1);
     localStorage.setItem("taskList", JSON.stringify(taskList));
     displayTaskList();
