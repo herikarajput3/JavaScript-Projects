@@ -5,6 +5,11 @@
     font-size: 3rem;
 }
 
+@media screen and (max-width: 425px) {
+    .logo {
+        font-size: 2rem;
+    }
+}
 
 header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -29,9 +34,6 @@ header {
     border-color: #007bff;
 }
 
-.navbar-toggler-icon {
-    background-color: #007bff;
-}
 
 .loader {
     display: flex;
