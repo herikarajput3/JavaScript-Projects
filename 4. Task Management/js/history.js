@@ -8,7 +8,7 @@ function displayTaskHistory() {
         taskList +=
             `
         <tr>
-            <th scope="row">${index+1}</th>
+            <th scope="row">${index + 1}</th>
             <td>${items.taskName}</td>
             <td>${items.taskDesc}</td>
             <td>${items.taskStatus}</td>
@@ -23,3 +23,21 @@ function displayTaskHistory() {
     })
 }
 displayTaskHistory();
+
+function removeTask(id) {
+    let taskHistory = JSON.parse(localStorage.getItem("taskListHistory")) || [];
+    taskHistory.splice(id, 1);
+    localStorage.setItem("taskListHistory", JSON.stringify(taskHistory));
+    displayTaskHistory();
+}
+
+function restoreTask(id) {
+    let taskHistory = JSON.parse(localStorage.getItem("taskListHistory")) || [];
+    let taskList = JSON.parse(localStorage.getItem("taskList")) || [];
+    let deletedTask = taskHistory[id];
+    taskList.push(deletedTask);
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+    taskHistory.splice(id, 1);
+    localStorage.setItem("taskListHistory", JSON.stringify(taskHistory))
+    displayTaskHistory();
+}
