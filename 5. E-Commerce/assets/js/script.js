@@ -3,8 +3,6 @@ let allProducts = [];
 
 const fetchProducts = async () => {
     let productRow = document.querySelector("#productRow");
-    console.log("productRow", productRow);
-
     try {
         // loader
         let skeleton = `
