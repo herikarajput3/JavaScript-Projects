@@ -1,7 +1,6 @@
 let productRow = document.querySelector("#productRow");
 const API_URL = "https://fakestoreapi.com/products";
-let cartItems = document.querySelector("#cartItems");
-
+let allProducts = [];
 
 const fetchProducts = async () => {
     try {
@@ -29,10 +28,11 @@ const fetchProducts = async () => {
             console.log(`Error!! status: ${data.status}`);
         }
 
-        const products = await data.json();
+        allProducts = await data.json();
+
         let productCard = "";
         productRow.innerHTML = "";
-        products.map(product => {
+        allProducts.map((product) => {
             productCard += `
             <div class="col-md-3 mb-4">
                 <div class="product-card border rounded p-3 d-flex flex-column">
@@ -41,7 +41,7 @@ const fetchProducts = async () => {
                         <h5 class="product-title">${product.title}</h5>
                         <p class="card-text">${product.description}</p>
                         <p class="product-price fw-bold">Price: &dollar;${product.price}</p>
-                        <button class="btn btn-primary mt-auto ">Add to Cart</button>
+                        <button class="btn btn-primary mt-auto" onclick="addToCart(${product.id})">Add to Cart</button>
                     </div>
                 </div>
             </div>`;
@@ -53,8 +53,50 @@ const fetchProducts = async () => {
         productRow.innerHTML = `<p class="text-danger">Failed to load products. Please try again later.</p>`;
         console.error("Error fetching products:", error);
     }
+
+
 }
 
 fetchProducts();
+
+
+let cartItems = document.querySelector("#cartItems"); // From cart.html
+let cartBtn = document.querySelector(".cartBtn");
+
+function addToCart(productID) {
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Product details
+    const product = allProducts.find((item) => {
+        return item.id === productID;
+    })
+
+    // if product exist
+    const existingProduct = cart.find((item) => item.id === product.id);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    // alert(`${product.title} is added to the cart`)
+    cartCount();
+}
+
+function cartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let total = 0
+    cart.forEach(counter => {
+        total += counter.quantity;
+    });
+
+    document.querySelector("#cartCount").textContent = total;
+
+}
+
+
 
 
