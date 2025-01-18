@@ -23,3 +23,4 @@ showData();
 // Change dog on button click
 const changeDogBtn = document.getElementById("change-dog");
 changeDogBtn.addEventListener("click", showData);
+location.reload();
