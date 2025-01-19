@@ -113,7 +113,10 @@ function cartShow() {
 }
 
 function proceedToBuy() {
-    alert("Order placed, thank you!")
+    alert("Order placed, thank you!");
+    localStorage.removeItem("cart"); 
+    cartCount(); 
+    cartShow(); 
 }
 
 function increaseQty(id) {
