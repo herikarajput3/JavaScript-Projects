@@ -3,11 +3,11 @@ body {
 }
 
 .navbar {
-    background-color: #333;
+    background-color:  #4a5d69;;
 }
 
 .navbar .navbar-brand,
-.navbar .nav-link{
+.navbar .nav-link {
     color: #fff;
     transition: color 0.3s ease-in-out;
 }
@@ -39,9 +39,9 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom right, #1e3c72, #2a5298);
-    color: #fff;
-    text-align: center;
+    background: #8e9eab;
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+    background: linear-gradient(to right, #eef2f3, #8e9eab);
 }
 
 header .container p {
@@ -50,17 +50,18 @@ header .container p {
     font-weight: bold;
     letter-spacing: 0.1rem;
     overflow: hidden;
+    color: #4a5d69; 
+
 }
 
 header .container p span.typed-text {
     font-weight: normal;
-    color: #ffdd57;
-    /* Highlighted text color */
+    color: #ffc107; 
 }
 
 header .container p span.cursor {
     display: inline-block;
-    background-color: #fff;
+    background-color: #333;
     margin-left: 0.1rem;
     width: 3px;
     animation: blink 0.6s infinite;
