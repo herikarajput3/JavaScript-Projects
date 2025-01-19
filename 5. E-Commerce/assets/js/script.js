@@ -52,7 +52,7 @@ const fetchProducts = async () => {
         let addToCartBtns = document.querySelectorAll(".addToCart");
         addToCartBtns.forEach(button => {
             button.addEventListener("click", () => {
-                const productID = button.getAttribute('data-product-id'); // Fix the selector here
+                const productID = button.getAttribute('data-product-id'); 
                 addToCart(productID);
             });
         });

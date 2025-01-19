@@ -35,6 +35,7 @@ function addToCart(productID) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
+    alert(`You successfully added ${product.title}to the cart`);
     cartCount();
     cartShow();
 }
