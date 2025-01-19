@@ -115,6 +115,7 @@ function cartShow() {
 function proceedToBuy() {
     alert("Order placed, thank you!");
     localStorage.removeItem("cart"); 
+    location.reload();
     cartCount(); 
     cartShow(); 
 }
