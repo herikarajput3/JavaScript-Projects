@@ -56,7 +56,6 @@ function cartShow() {
     let cartProduct = "";
     let totalPrice = 0;
 
-    // Render cart products and calculate the total price
     products.map((item) => {
         const productTotal = item.price * item.quantity;
         totalPrice += productTotal;
@@ -84,7 +83,6 @@ function cartShow() {
     let deliveryCharges = totalPrice < 500 ? 50 : 0;
     let grandTotal = totalPrice + deliveryCharges;
 
-    // Add total price, delivery charges, and grand total
     cartProduct += `
         <div class="col-12 mt-4">
             <div class="border p-3">
@@ -114,10 +112,10 @@ function cartShow() {
 
 function proceedToBuy() {
     alert("Order placed, thank you!");
-    localStorage.removeItem("cart"); 
+    localStorage.removeItem("cart");
     location.reload();
-    cartCount(); 
-    cartShow(); 
+    cartCount();
+    cartShow();
 }
 
 function increaseQty(id) {
@@ -139,13 +137,16 @@ function reduceQty(id) {
         localStorage.setItem("cart", JSON.stringify(cart));
         cartCount();
         cartShow();
+    } else {
+        removeFromCart(id);
     }
 }
 
 function removeFromCart(id) {
     const cart = JSON.parse(localStorage.getItem("cart"));
-    const updatedCart = cart.filter(item => item.id !== id);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    const itemIndex = cart.findIndex(item => item.id === id);
+    cart.splice(itemIndex, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
     cartCount();
     cartShow();
 }
