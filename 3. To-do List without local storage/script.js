@@ -54,7 +54,7 @@ form.addEventListener("submit", (e) => {
     li.innerHTML =
         `
         <span>${taskText}</span>
-        <div>
+        <div class="my-2">
             <button class="btn btn-success doneBtn" id="">Done</button>
             <button class="btn btn-danger removeBtn" id="">Remove</button>
         </div>
@@ -68,6 +68,12 @@ form.addEventListener("submit", (e) => {
         e.preventDefault();
         let span = li.querySelector("span");
         span.style.textDecoration = "line-through";
+    })
+
+    const removeBtn = li.querySelector(".removeBtn");
+    removeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        li.remove();
     })
 
 })
