@@ -55,11 +55,19 @@ form.addEventListener("submit", (e) => {
         `
         <span>${taskText}</span>
         <div>
-            <button class="btn btn-success" id="doneBtn">Done</button>
-            <button class="btn btn-danger" id="removeBtn">Remove</button>
+            <button class="btn btn-success doneBtn" id="">Done</button>
+            <button class="btn btn-danger removeBtn" id="">Remove</button>
         </div>
     `;
 
     ul.appendChild(li);
+    input.value = "";
+
+    const doneBtn = li.querySelector(".doneBtn");
+    doneBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        let span = li.querySelector("span");
+        span.style.textDecoration = "line-through";
+    })
 
 })
