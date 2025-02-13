@@ -14,59 +14,71 @@ form.addEventListener("submit", (e) => {
     taskData.push({ task, completed: false });
     localStorage.setItem("taskData", JSON.stringify(taskData));
     input.value = "";
+    show()
 })
 
-// function show() {
+function show() {
 
-//     let taskData = JSON.parse(localStorage.getItem("taskData")) || [];
+    // taskData.map((item, index) => {
 
-//     let allTasks = "";
-//     let activeTasks = "";
-//     let completedTasks = "";
 
-//     taskData.map((item, index) => {
-//         // allTasks += `
-//         // <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-//         //                                     style="background-color: #f4f6f7;" data-index = "${index}">
-//         //             <input class="form-check-input me-2" type="checkbox" onchange=toggle(this) />
-//         //                     ${items.task}
-//         // </li>`
-//         allTasks += `
-//         <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-//             style="background-color: #f4f6f7;" data-index="${index}">
-//             <input class="form-check-input me-2" type="checkbox" ${item.completed ? "checked" : ""}
-//                 onchange="toggle(${index})">
-//             <span style="${item.completed ? "text-decoration: line-through;" : ""}">${item.task}</span>
+    //     allTasks += `
+    //     <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+    //         style="background-color: #f4f6f7;" data-index="${index}">
+    //         <input class="form-check-input me-2" type="checkbox" ${item.completed ? "checked" : ""}
+    //             onchange="toggle(${index})">
+    //         <span style="${item.completed ? "text-decoration: line-through;" : ""}">${item.task}</span>
 
-//             <i class="fa-regular fa-circle-xmark ms-auto text-danger" style="cursor: pointer;" onclick="removeTask(${index})"></i>
-//         </li>`
+    //         <i class="fa-regular fa-circle-xmark ms-auto text-danger" style="cursor: pointer;" onclick="removeTask(${index})"></i>
+    //     </li>`
 
-//         if (!item.completed) {
-//             activeTasks += `
-//         <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-//             style="background-color: #f4f6f7;">
-//             <input class="form-check-input me-2" type="checkbox"
-//                 onchange="toggle(${index})">
-//             <span>${item.task}</span>
-//         </li>`;
-//         }
+    //     if (!item.completed) {
+    //         activeTasks += `
+    //     <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+    //         style="background-color: #f4f6f7;">
+    //         <input class="form-check-input me-2" type="checkbox"
+    //             onchange="toggle(${index})">
+    //         <span>${item.task}</span>
+    //     </li>`;
+    //     }
 
-//         if (item.completed) {
-//             completedTasks += `
-//         <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
-//             style="background-color: #f4f6f7;>
-//             <input class="form-check-input me-2" type="checkbox" checked
-//                 onchange="toggle(${index})">
-//             <span style="text-decoration: line-through;">${item.task}</span>
-//         </li>`;
-//         }
-//     });
+    //     if (item.completed) {
+    //         completedTasks += `
+    //     <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+    //         style="background-color: #f4f6f7;>
+    //         <input class="form-check-input me-2" type="checkbox" checked
+    //             onchange="toggle(${index})">
+    //         <span style="text-decoration: line-through;">${item.task}</span>
+    //     </li>`;
+    //     }
+    // });
 
-//     allTasksList.innerHTML = allTasks;
-//     activeTasksList.innerHTML = activeTasks;
-//     completedTasksList.innerHTML = completedTasks;
+    // allTasksList.innerHTML = allTasks;
+    // activeTasksList.innerHTML = activeTasks;
+    // completedTasksList.innerHTML = completedTasks;
 
-// }
+    let taskData = JSON.parse(localStorage.getItem("taskData"));
+
+    let allTasks = "";
+    let completedTasks = "";
+    let activeTasks = "";
+
+    taskData.map((item, index) => {
+
+        allTasks +=
+            `
+        <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+            style="background-color: #f4f6f7;" id="checkbox" data-index="${index}">
+        <input class="form-check-input me-2" type="checkbox" ${item.completed ? "checked" : ""}
+        onchange="toggle(${index})" />
+            <span sytle="${item.completed ? "text-decoration: line-through;" : ""}">${item.task}</span>
+        <i class="fa-regular fa-circle-xmark text-danger ms-auto" style="cursor: pointer;" onclick="removeTask(${index})"></i>
+        </li>
+        `
+    })
+
+    allTasksList.innerHTML = allTasks;
+}
 
 // function toggle(checkbox) {
 //     const listItem = checkbox.closest(".list-group-item");
