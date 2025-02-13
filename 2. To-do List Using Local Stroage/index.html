@@ -69,12 +69,12 @@
                                 <div class="tab-pane fade" id="activeTasks" role="tabpanel"
                                     aria-labelledby="active-tab">
                                     <ul class="list-group mb-0" id="activeTasksList">
-                                        <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
+                                        <!-- <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                                             style="background-color: #f4f6f7;">
                                             <input class="form-check-input me-2" type="checkbox" value=""
                                                 aria-label="..." />
                                             reading
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                                 <div class="tab-pane fade" id="completedTasks" role="tabpanel"
@@ -82,15 +82,14 @@
                                     <ul class="list-group mb-0" id="completedTasksList">
                                         <!-- <li class="list-group-item d-flex align-items-center border-0 mb-2 rounded"
                                             style="background-color: #f4f6f7;">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
-                                                aria-label="..." />
-                                            writing
+                                            <input class="form-check-input me-2" type="checkbox" checked
+                                                onchange="toggle()" />
+                                            <span style="text-decoration: line-through;">${item.task}</span>
                                         </li> -->
                                     </ul>
                                 </div>
                             </div>
                             <!-- Tabs content -->
-
                         </div>
                     </div>
 
